@@ -1,13 +1,9 @@
-import express from "express"
+import { app } from "./app.js";
 import "dotenv/config"
-import session from "express-session"
+import connectDB from "./config/db.config.js";
 
-const app = express();
 
-//middlewares
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-
+connectDB();
 
 app.listen(process.env.PORT, () => {
     console.log("Server is running")
