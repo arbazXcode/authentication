@@ -2,7 +2,7 @@ import session from "express-session"
 import express from "express"
 import "dotenv/config"
 import MongoStore from "connect-mongo"
-
+import authRoutes from "./routes/auth.routes.js"
 export const app = express()
 
 //middlewares
@@ -29,7 +29,7 @@ app.use(
 
 app.use("/api/auth", authRoutes)
 
-app.use((err, req, res, next) => {
-    console.error(err.stack);
-    res.status(500).json({ error: "Something went wrong" })
-})
+// app.use((err, req, res, next) => {
+//     console.error(err.stack);
+//     res.status(500).json({ error: "Something went wrong" })
+// })
